@@ -21,7 +21,7 @@ public class ComputerTest {
         //Creating container by using Application Context(Container)
         // Context = Container
 
-        ApplicationContext container = new AnnotationConfigApplicationContext(ComputerTest.class, RandomConfig.class);
+        ApplicationContext container = new AnnotationConfigApplicationContext(ComputerConfig.class, RandomConfig.class);
         // Creating container by using beanFactory
         BeanFactory context = new AnnotationConfigApplicationContext();
 
