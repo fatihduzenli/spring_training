@@ -14,7 +14,8 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class ComputerConfig {
 
-    @Bean
+    @Bean(name = "sony")
+    @Primary
 public Monitor monitorSony(){
 
     return new SonyMonitor("25 inch Beast","Acer",25);

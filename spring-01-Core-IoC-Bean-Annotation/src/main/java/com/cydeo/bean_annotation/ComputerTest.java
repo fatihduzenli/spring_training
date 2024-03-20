@@ -22,14 +22,28 @@ public class ComputerTest {
         // Context = Container
 
         ApplicationContext container = new AnnotationConfigApplicationContext(ComputerTest.class, RandomConfig.class);
+        // Creating container by using beanFactory
+        BeanFactory context = new AnnotationConfigApplicationContext();
 
         //Configuration means adding beans into context, We pass the config class in the Constructor
 
-        Monitor theMonitor=container.getBean(Monitor.class);
+        System.out.println("************Retrieving the beans******************");
+
+        Case theCase=container.getBean(Case.class);  // here we are calling a necessity object from the container
+        Motherboard theMotherboard=container.getBean(Motherboard.class); // here we are calling a necessity object from the container
+
+        System.out.println("************Multiple Objects******************");
+
+        Monitor theMonitor=container.getBean(Monitor.class); // here we are calling a necessity object from the container
         // this is how we get the monitor object inside the container
 
-        Case theCase=container.getBean(Case.class);
-        Motherboard theMotherboard=container.getBean(Motherboard.class);
+        Monitor theMonitor2 = container.getBean("sony", Monitor.class);
+        // We can specify the object by giving it a name
+
+        Monitor theMonitor3 = container.getBean(Monitor.class); //Primary
+        // if we pass @primary annotation for bean method, that would be the fist object to call
+
+
 
         PC myPc= new PC(theCase,theMonitor,theMotherboard);
         myPc.powerUp();
