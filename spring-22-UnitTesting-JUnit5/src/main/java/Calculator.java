@@ -6,5 +6,13 @@ public class Calculator {
         return num1+numb2;
     }
 
+    public static int add2(int num1, int numb2){
+        if (num1<numb2){
+            throw new IllegalArgumentException("My exception");
+        }
+
+        return num1+numb2;
+    }
+
 
 }
